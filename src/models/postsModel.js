@@ -12,3 +12,10 @@ export async function getTodosOsPosts() {
     // Executa uma consulta para encontrar todos os documentos na coleção e retorna os resultados como um array.
     return colecao.find().toArray();
 }
+
+export async function criarPost(novoPost) {
+
+    const db = conexao.db("imersao-instabyte");
+    const colecao = db.collection("posts");
+    return colecao.insertOne(novoPost);
+}
